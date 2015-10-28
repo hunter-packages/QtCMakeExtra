@@ -22,10 +22,6 @@ if(NOT TARGET Qt5::Network)
   message(FATAL_ERROR "No target Qt5::Network")
 endif()
 
-if(NOT _qt5_is_static)
-  return()
-endif()
-
 # Fix linking errors
 if(IOS)
   _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework Security")
