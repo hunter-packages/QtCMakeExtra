@@ -25,6 +25,13 @@ install(
 
 install(
     FILES
+    Qt5MultimediaWidgets_ZZZ_HunterPlugin.cmake
+    DESTINATION
+    "lib/cmake/Qt5MultimediaWidgets"
+)
+
+install(
+    FILES
     Qt5Core_HunterPlugin.cmake
     DESTINATION
     "lib/cmake/Qt5Core"
