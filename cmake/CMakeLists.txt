@@ -1,19 +1,11 @@
-hunter_add_package(Qt)
-find_package(Qt5Core REQUIRED)
-
-if(Qt5Core_VERSION MATCHES "^5\\.5\\.")
-  install(
-      FILES Qt5Widgets_HunterPlugin_5_5.cmake
-      DESTINATION "lib/cmake/Qt5Widgets"
-  )
-elseif(Qt5Core_VERSION MATCHES "^5\\.6\\.")
-  install(
-      FILES Qt5Widgets_HunterPlugin_5_6.cmake
-      DESTINATION "lib/cmake/Qt5Widgets"
-  )
-else()
-  message(FATAL_ERROR "Unexpected Qt version")
-endif()
+install(
+    FILES
+    Qt5Widgets_HunterPlugin_5_5.cmake
+    Qt5Widgets_HunterPlugin_5_6.cmake
+    Qt5Widgets_HunterPlugin.cmake
+    DESTINATION
+    "lib/cmake/Qt5Widgets"
+)
 
 install(
     FILES
