@@ -25,6 +25,20 @@ endif()
 # Fix linking errors
 if(IOS)
   _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework Security")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework Foundation")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework UIKit")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework CoreFoundation")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework Security")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework SystemConfiguration")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework CoreFoundation")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "m")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "z")
+
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Network
+      "${_qt_install_prefix}/lib/libqtpcre.a"
+      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+  )
 elseif(APPLE)
   # _SCDynamicStoreCopyProxies
   _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework SystemConfiguration")

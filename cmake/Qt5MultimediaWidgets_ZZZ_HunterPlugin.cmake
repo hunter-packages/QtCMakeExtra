@@ -17,10 +17,3 @@ include("${_qt_install_prefix}/cmake/QtCMakeExtraHelpers.cmake")
 if(NOT _qt_is_static)
   return()
 endif()
-
-if(TARGET Qt5::AVFMediaPlayerServicePlugin)
-  # cyclic dependencies, see Qt5Multimedia_ZZZ_HunterPlugin.cmake
-  _qt_cmake_extra_helpers_add_interface(
-      Qt5::AVFMediaPlayerServicePlugin Qt5::MultimediaWidgets
-  )
-endif()

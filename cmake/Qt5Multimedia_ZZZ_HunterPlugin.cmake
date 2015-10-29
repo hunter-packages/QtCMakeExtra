@@ -56,12 +56,11 @@ if(TARGET Qt5::AVFMediaPlayerServicePlugin)
   # for simplicity check existence of target
 
   if(IOS)
-    if(TARGET Qt5::MultimediaWidgets)
-      # cyclic dependencies, see Qt5MultimediaWidgets_ZZZ_HunterPlugin.cmake
-      _qt_cmake_extra_helpers_add_interface(
-          Qt5::AVFMediaPlayerServicePlugin Qt5::MultimediaWidgets
-      )
-    endif()
+    # We can't add find_package(Qt5MultimediaWidgets) here because of cyclic
+    # dependency. User should do it himself :(
+    _qt_cmake_extra_helpers_add_interface(
+        Qt5::AVFMediaPlayerServicePlugin Qt5::MultimediaWidgets
+    )
   elseif(APPLE)
     _qt_cmake_extra_helpers_add_interface(
         Qt5::AVFMediaPlayerServicePlugin

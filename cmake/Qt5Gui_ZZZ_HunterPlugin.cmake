@@ -17,7 +17,27 @@ if(NOT _qt_is_static)
 endif()
 
 if(IOS)
-  #
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework Foundation")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework UIKit")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreFoundation")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreText")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreGraphics")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework OpenGLES")
+
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "m")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "z")
+
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/libqtpcre.a"
+      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+  )
+
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
+      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+  )
 elseif(APPLE)
   #
 elseif(UNIX)
