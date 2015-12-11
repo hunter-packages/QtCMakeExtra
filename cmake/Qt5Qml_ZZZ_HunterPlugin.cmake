@@ -24,3 +24,28 @@ if(IOS AND TARGET Qt5::QTcpServerConnection)
   # No Qt5::QTcpServerConnection target in Qt 5.6
   _qt_cmake_extra_helpers_add_interface(Qt5::Qml Qt5::QTcpServerConnection)
 endif()
+
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QLocalClientConnectionFactory.cmake"
+    OPTIONAL
+)
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebugServerFactory.cmake"
+    OPTIONAL
+)
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebuggerServiceFactory.cmake"
+    OPTIONAL
+)
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlInspectorServiceFactory.cmake"
+    OPTIONAL
+)
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlProfilerServiceFactory.cmake"
+    OPTIONAL
+)
+include(
+    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QTcpServerConnectionFactory.cmake"
+    OPTIONAL
+)
