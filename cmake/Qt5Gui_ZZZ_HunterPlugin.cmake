@@ -39,7 +39,48 @@ if(IOS)
       "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
   )
 elseif(APPLE)
-  #
+  # _adler32
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "z")
+
+  # _glBindTexture
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework OpenGL")
+
+  # _hb_blob_create
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
+      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+  )
+
+  # _CGFontCopyTableForTag
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreGraphics")
+
+  # _CTFontCopyGraphicsFont
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreText")
+
+  _qt_cmake_extra_helpers_add_source(
+      Qt5::Gui
+      "static_qt_plugins.cpp"
+  )
+
+  # _CGImageDestinationAddImage
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework ImageIO")
+
+  # _DisableSecureEventInput
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework Carbon")
+
+  # _IODisplayCreateInfoDictionary
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework IOKit")
+
+  # _NSAccessibilityApplicationRole
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework AppKit")
+
+  # qcgl_getProcAddress
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
+      "${_qt_install_prefix}/lib/libQt5PlatformSupport_debug.a"
+  )
 elseif(UNIX)
   # Linux
 
