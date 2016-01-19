@@ -20,9 +20,12 @@ if(NOT TARGET Qt5::Qml)
   message(FATAL_ERROR "Expected target Qt5::Qml")
 endif()
 
-if(IOS AND TARGET Qt5::QTcpServerConnection)
+if(TARGET Qt5::QTcpServerConnection)
   # No Qt5::QTcpServerConnection target in Qt 5.6
-  _qt_cmake_extra_helpers_add_interface(Qt5::Qml Qt5::QTcpServerConnection)
+
+  if(IOS OR APPLE)
+    _qt_cmake_extra_helpers_add_interface(Qt5::Qml Qt5::QTcpServerConnection)
+  endif()
 endif()
 
 include(
