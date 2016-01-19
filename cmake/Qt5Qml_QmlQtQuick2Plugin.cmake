@@ -20,7 +20,7 @@ if(TARGET Qt5::QmlQtQuick2Plugin)
   return()
 endif()
 
-if(IOS)
+if(APPLE OR IOS)
   add_library(Qt5::QmlQtQuick2Plugin MODULE IMPORTED)
 
   set(_release_lib "${_qt_install_prefix}/qml/QtQuick.2/libqtquick2plugin.a")
