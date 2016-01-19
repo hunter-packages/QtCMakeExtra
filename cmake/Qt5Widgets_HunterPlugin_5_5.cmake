@@ -81,7 +81,9 @@ elseif(APPLE)
       "static_qt_plugins.cpp"
   )
 
-  find_package(Qt5PrintSupport REQUIRED)
+  # Lead to configuration errors (cyclic dependencies)
+  # find_package(Qt5PrintSupport REQUIRED)
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::PrintSupport)
 
   # Frameworks
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "-framework Carbon")
@@ -90,7 +92,6 @@ elseif(APPLE)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "-framework OpenGL")
 
   # Qt
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::PrintSupport)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::QCocoaIntegrationPlugin)
 
   # Qt non-imported
