@@ -45,4 +45,10 @@ elseif(APPLE)
 
   # _SecKeychainFindInternetPassword
   _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework Security")
+
+  # _CFArrayAppendValue
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework CoreFoundation")
+
+  # _CFNetworkCopyProxiesForAutoConfigurationScript
+  _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework CFNetwork")
 endif()
