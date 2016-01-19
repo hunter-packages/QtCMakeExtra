@@ -19,7 +19,18 @@ endif()
 if(IOS)
   #
 elseif(APPLE)
-  #
+  # _FSCopyAliasInfo
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core "-framework CoreServices")
+
+  # _OBJC_CLASS_$_NSAutoreleasePool
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core "-framework Foundation")
+
+  # _pcre16_assign_jit_stack
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Core
+      "${_qt_install_prefix}/lib/libqtpcre.a"
+      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+  )
 elseif(UNIX)
   # Linux
 
