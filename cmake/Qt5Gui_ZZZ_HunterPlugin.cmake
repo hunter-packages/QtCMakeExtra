@@ -63,6 +63,8 @@ elseif(APPLE)
       "static_qt_plugins.cpp"
   )
 
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui Qt5::QCocoaIntegrationPlugin)
+
   # _CGImageDestinationAddImage
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework ImageIO")
 
