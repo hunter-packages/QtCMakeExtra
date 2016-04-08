@@ -35,9 +35,11 @@ elseif(UNIX)
   # Linux
 
   # defined: `ucal_close_52`
-  _qt_cmake_extra_helpers_add_interface(Qt5::Core "icui18n")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Core "icui18n")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Core "icuuc")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Core "icuuc")
 
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "dl")
 elseif(MSVC)

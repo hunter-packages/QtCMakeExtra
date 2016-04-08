@@ -133,22 +133,37 @@ elseif(UNIX)
 
   # 3rd party
 
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libXau.a"
+  )
+
   # defined: 'IceProcessMessages'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "ICE")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "ICE")
 
   # defined: `SmcCloseConnection'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "SM")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "SM")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11")
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11-xcb")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11")
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11-xcb")
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libxcb.a"
+  )
 
   # defined: pthread_once
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "pthread")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "xcb")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "xcb")
 
   # defined: `crc32'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "z")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "z")
+
+  # `clock_gettime` and `clock_settime`
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "rt")
 
   # defined `hb_ot_tags_from_script'
   # should be set before Qt5::Gui

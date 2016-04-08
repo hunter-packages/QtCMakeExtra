@@ -87,11 +87,14 @@ elseif(UNIX)
   # Linux
 
   # defined: `glBindTexture'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "GL")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "GL")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "png")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "png")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "jpeg")
+  # Disable for build with xcb from Hunter
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "jpeg")
 elseif(MSVC)
   #
 elseif(MINGW)
