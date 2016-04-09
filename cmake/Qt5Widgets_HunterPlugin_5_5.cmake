@@ -140,10 +140,16 @@ elseif(UNIX)
   # defined: 'IceProcessMessages'
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "ICE")
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libICE.a"
+  )
 
   # defined: `SmcCloseConnection'
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "SM")
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libSM.a"
+  )
 
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11")
