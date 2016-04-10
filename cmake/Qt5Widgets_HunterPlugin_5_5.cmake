@@ -216,7 +216,7 @@ elseif(MSVC)
   )
 
   # defined: '_glBindBuffer'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_GLESv2)
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_GLESv2)
 
   # defined: '_hb_buffer_create'
   _qt_cmake_extra_helpers_add_interface_release_debug(
@@ -226,11 +226,11 @@ elseif(MSVC)
   )
 
   # defined: 'CreateTLSIndex'
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::Widgets
-      "${_qt_install_prefix}/lib/translator.lib"
-      "${_qt_install_prefix}/lib/translatord.lib"
-  )
+  # _qt_cmake_extra_helpers_add_interface_release_debug(
+  #      Qt5::Widgets
+  #     "${_qt_install_prefix}/lib/translator.lib"
+  #     "${_qt_install_prefix}/lib/translatord.lib"
+  # )
 
   # defined: '_pcre16_compile2'
   _qt_cmake_extra_helpers_add_interface_release_debug(
@@ -259,7 +259,7 @@ elseif(MSVC)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets winmm)
 
   # defined: '_eglChooseConfig'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
+  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
 
   # defined: '_Direct3DCreate9'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets d3d9)
@@ -275,11 +275,11 @@ elseif(MSVC)
   )
 
   # defined: 'pp::Preprocessor::Preprocessor'
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::Widgets
-      "${_qt_install_prefix}/lib/preprocessor.lib"
-      "${_qt_install_prefix}/lib/preprocessord.lib"
-  )
+  # _qt_cmake_extra_helpers_add_interface_release_debug(
+  #    Qt5::Widgets
+  #    "${_qt_install_prefix}/lib/preprocessor.lib"
+  #    "${_qt_install_prefix}/lib/preprocessord.lib"
+  #)
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
