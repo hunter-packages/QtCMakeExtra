@@ -88,7 +88,7 @@ elseif(UNIX)
 
   # defined: `glBindTexture'
   # Disable for build with xcb from Hunter
-  # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "GL")
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui "GL")
 
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "png")
