@@ -58,11 +58,11 @@ if(IOS OR APPLE)
     )
   endif()
 
-  #_qt_cmake_extra_helpers_add_interface_release_debug(
-  #    Qt5::QMultimediaDeclarativeModule
-  #    "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p.a"
-  #    "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p_debug.a"
-  #)
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::QMultimediaDeclarativeModule
+      "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p.a"
+      "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p_debug.a"
+  )
 endif()
 
 _qt_cmake_extra_helpers_add_source(
