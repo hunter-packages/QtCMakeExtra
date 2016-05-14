@@ -259,7 +259,7 @@ elseif(MSVC)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets winmm)
 
   # defined: '_eglChooseConfig'
-  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
 
   # defined: '_Direct3DCreate9'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets d3d9)
