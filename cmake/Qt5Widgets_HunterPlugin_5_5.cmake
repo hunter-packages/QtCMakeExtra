@@ -81,9 +81,19 @@ elseif(APPLE)
       "static_qt_plugins.cpp"
   )
 
-  # Lead to configuration errors (cyclic dependencies)
-  # find_package(Qt5PrintSupport REQUIRED)
-  # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::PrintSupport)
+# Cyclic dependency when using find_package(Qt5PrintSupport) as it tries to find
+# Qt5Widgets. As a work-around, we check for the a variable set in
+# FindQt5PrintSupport.cmake.  This is fragile, but allows the client code to
+# link without changes
+  string(COMPARE EQUAL
+      "${Qt5PrintSupport_VERSION_STRING}"
+      ""
+      _find_package_print_support_not_ran
+  )
+  if(_find_package_print_support_not_ran)
+    find_package(Qt5PrintSupport REQUIRED)
+  endif()
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::PrintSupport)
 
   # Frameworks
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "-framework Carbon")
