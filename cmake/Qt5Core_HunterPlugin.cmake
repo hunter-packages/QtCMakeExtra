@@ -31,6 +31,8 @@ elseif(APPLE)
       "${_qt_install_prefix}/lib/libqtpcre.a"
       "${_qt_install_prefix}/lib/libqtpcre_debug.a"
   )
+
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core "z") # TODO: link Hunter version
 elseif(UNIX)
   # Linux
 
