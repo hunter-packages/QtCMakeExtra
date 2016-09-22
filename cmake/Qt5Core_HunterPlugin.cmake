@@ -43,7 +43,15 @@ elseif(UNIX)
 
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "dl")
 elseif(MSVC)
-  #
+  # defined: '_pcre16_compile2'
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Core
+      "${_qt_install_prefix}/lib/qtpcre.lib"
+      "${_qt_install_prefix}/lib/qtpcred.lib"
+  )
+
+  # defined: '_WSAAsyncSelect'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core ws2_32)
 elseif(MINGW)
   #
 endif()
