@@ -59,6 +59,43 @@ if(APPLE OR IOS OR _is_linux)
         IMPORTED_LOCATION_DEBUG "${_debug_lib}"
     )
   endif()
+elseif(MSVC)
+  add_library(Qt5::QmlQtQuick2Plugin MODULE IMPORTED)
+
+  set(_release_lib "${_qt_install_prefix}/qml/QtQuick.2/qtquick2plugin.lib")
+  set(_debug_lib "${_qt_install_prefix}/qml/QtQuick.2/qtquick2plugind.lib")
+
+  if(EXISTS "${_release_lib}")
+    set_property(
+        TARGET
+        Qt5::QmlQtQuick2Plugin
+        APPEND
+        PROPERTY
+        IMPORTED_CONFIGURATIONS RELEASE
+    )
+    set_target_properties(
+        Qt5::QmlQtQuick2Plugin
+        PROPERTIES
+        IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
+        IMPORTED_LOCATION_RELEASE "${_release_lib}"
+    )
+  endif()
+
+  if(EXISTS "${_debug_lib}")
+    set_property(
+        TARGET
+        Qt5::QmlQtQuick2Plugin
+        APPEND
+        PROPERTY
+        IMPORTED_CONFIGURATIONS DEBUG
+    )
+    set_target_properties(
+        Qt5::QmlQtQuick2Plugin
+        PROPERTIES
+        IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "CXX"
+        IMPORTED_LOCATION_DEBUG "${_debug_lib}"
+    )
+  endif()
 endif()
 
 _qt_cmake_extra_helpers_add_source(
