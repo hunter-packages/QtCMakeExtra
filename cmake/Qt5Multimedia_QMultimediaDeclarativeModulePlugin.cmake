@@ -20,7 +20,9 @@ if(TARGET Qt5::QMultimediaDeclarativeModule)
   return()
 endif()
 
-if(IOS OR APPLE)
+string(COMPARE EQUAL "${CMAKE_SYSTEM_NAME}" "Linux" _is_linux)
+
+if(IOS OR APPLE OR _is_linux)
   add_library(Qt5::QMultimediaDeclarativeModule MODULE IMPORTED)
 
   set(_release_lib "${_qt_install_prefix}/qml/QtMultimedia/libdeclarative_multimedia.a")

@@ -90,6 +90,12 @@ elseif(UNIX)
   # Disable for build with xcb from Hunter
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "GL")
 
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
+      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+  )
+
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "png")
 
