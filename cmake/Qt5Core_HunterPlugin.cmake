@@ -43,6 +43,11 @@ elseif(UNIX)
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Core "icuuc")
 
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
+    find_package(Threads REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::Core "Threads::Threads")
+  endif()
+
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "dl")
 
   # _pcre16_assign_jit_stack
