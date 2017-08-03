@@ -35,8 +35,8 @@ if(IOS)
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Gui
-      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
-      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 elseif(APPLE)
   # _adler32
@@ -48,8 +48,8 @@ elseif(APPLE)
   # _hb_blob_create
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Gui
-      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
-      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 
   # _CGFontCopyTableForTag
@@ -92,8 +92,8 @@ elseif(UNIX)
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Gui
-      "${_qt_install_prefix}/lib/libqtharfbuzzng.a"
-      "${_qt_install_prefix}/lib/libqtharfbuzzng_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 
   # Disable for build with xcb from Hunter
