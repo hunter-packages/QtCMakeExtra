@@ -29,8 +29,8 @@ if(IOS)
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Gui
-      "${_qt_install_prefix}/lib/libqtpcre.a"
-      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}_debug.a"
   )
 
   _qt_cmake_extra_helpers_add_interface_release_debug(

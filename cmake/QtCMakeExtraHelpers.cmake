@@ -26,6 +26,12 @@ find_package(Qt5Core CONFIG REQUIRED)
 get_target_property(_qt_type Qt5::Core TYPE)
 string(COMPARE EQUAL "${_qt_type}" "STATIC_LIBRARY" _qt_is_static)
 
+if(Qt5Core_VERSION VERSION_LESS 5.9)
+  set(_qt_pcre_name "qtpcre")
+else()
+  set(_qt_pcre_name "qtpcre2")
+endif()
+
 # Add library, framework or link flags
 function(_qt_cmake_extra_helpers_add_interface target lib)
   if(NOT TARGET "${target}")

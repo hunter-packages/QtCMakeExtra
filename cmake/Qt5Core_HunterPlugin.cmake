@@ -28,8 +28,8 @@ elseif(APPLE)
   # _pcre16_assign_jit_stack
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Core
-      "${_qt_install_prefix}/lib/libqtpcre.a"
-      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}_debug.a"
   )
 
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "z") # TODO: link Hunter version
@@ -48,15 +48,15 @@ elseif(UNIX)
   # _pcre16_assign_jit_stack
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Core
-      "${_qt_install_prefix}/lib/libqtpcre.a"
-      "${_qt_install_prefix}/lib/libqtpcre_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}_debug.a"
   )
 elseif(MSVC)
   # defined: '_pcre16_compile2'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Core
-      "${_qt_install_prefix}/lib/qtpcre.lib"
-      "${_qt_install_prefix}/lib/qtpcred.lib"
+      "${_qt_install_prefix}/lib/${_qt_pcre_name}.lib"
+      "${_qt_install_prefix}/lib/${_qt_pcre_name}d.lib"
   )
 
   # defined: '_WSAAsyncSelect'
@@ -65,8 +65,8 @@ elseif(MINGW)
   # defined: '_pcre16_compile2'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Core
-      "${_qt_install_prefix}/lib/libqtpcre.a"
-      "${_qt_install_prefix}/lib/libqtpcred.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_pcre_name}d.a"
   )
 
   # defined: '_WSAAsyncSelect'
