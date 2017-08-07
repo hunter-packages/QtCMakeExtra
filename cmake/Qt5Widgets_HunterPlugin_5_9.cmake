@@ -321,6 +321,13 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/Qt5ThemeSupport.lib"
       "${_qt_install_prefix}/lib/Qt5ThemeSupportd.lib"
   )
+
+  # defined: QAccessibleBridgeUtils::effectiveActionNames
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/Qt5AccessibilitySupport.lib"
+      "${_qt_install_prefix}/lib/Qt5AccessibilitySupportd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
