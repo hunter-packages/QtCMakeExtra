@@ -37,8 +37,8 @@ if(IOS)
   # Qt non-imported
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}.a"
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
@@ -97,8 +97,8 @@ elseif(APPLE)
   # Qt non-imported
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}.a"
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
@@ -160,7 +160,7 @@ elseif(UNIX)
   # defined `hb_ot_tags_from_script'
   # should be set before Qt5::Gui
   _qt_cmake_extra_helpers_add_interface(
-      Qt5::Widgets "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}.a"
+      Qt5::Widgets "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
   )
 
   # should be set before Qt5::Gui
@@ -170,7 +170,7 @@ elseif(UNIX)
 
   # libs should be set before libQt5PlatformSupport
   # defined: QPlatformMenuItem::activated()
-  # (depends on z, lib${_qt_harfbuff_name}, GL)
+  # (depends on z, lib${_qt_harfbuzz_name}, GL)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui)
 
   # before libQt5PlatformSupport.a
@@ -207,8 +207,8 @@ elseif(MSVC)
   # defined: '_hb_buffer_create'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/${_qt_harfbuff_name}.lib"
-      "${_qt_install_prefix}/lib/${_qt_harfbuff_name}d.lib"
+      "${_qt_install_prefix}/lib/${_qt_harfbuzz_name}.lib"
+      "${_qt_install_prefix}/lib/${_qt_harfbuzz_name}d.lib"
   )
 
   # defined: 'CreateTLSIndex'
@@ -316,8 +316,8 @@ elseif(MINGW)
   # defined: '_hb_buffer_create'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}.a"
-      "${_qt_install_prefix}/lib/lib${_qt_harfbuff_name}d.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}d.a"
   )
 
   # defined: 'QPalette::~QPalette'
