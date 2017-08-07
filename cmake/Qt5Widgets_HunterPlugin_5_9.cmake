@@ -194,6 +194,12 @@ elseif(UNIX)
       Qt5::Widgets "${_qt_install_prefix}/lib/libQt5EventDispatcherSupport.a"
   )
 
+  # undefined reference to `QGenericUnixTheme::themeNames()'
+  # (before libQt5XcbQpa.a)
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libQt5ThemeSupport.a"
+  )
+
   # undefined reference to `SmcCloseConnection' (depends on SM, ICE)
   _qt_cmake_extra_helpers_add_interface(
       Qt5::Widgets "${_qt_install_prefix}/lib/libQt5XcbQpa.a"
