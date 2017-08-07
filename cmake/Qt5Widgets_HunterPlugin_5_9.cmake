@@ -304,6 +304,13 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/Qt5FontDatabaseSupport.lib"
       "${_qt_install_prefix}/lib/Qt5FontDatabaseSupportd.lib"
   )
+
+  # defined: QWindowsGuiEventDispatcher::QWindowsGuiEventDispatcher(class QObject *)
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/Qt5EventDispatcherSupport.lib"
+      "${_qt_install_prefix}/lib/Qt5EventDispatcherSupportd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
