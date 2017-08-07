@@ -152,7 +152,8 @@ elseif(UNIX)
   # defined: pthread_once
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "pthread")
 
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "xcb")
+  find_package(xcb CONFIG REQUIRED)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::xcb")
 
   # defined: `crc32'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "z")

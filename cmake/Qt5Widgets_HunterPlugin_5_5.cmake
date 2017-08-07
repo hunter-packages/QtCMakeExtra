@@ -164,9 +164,8 @@ elseif(UNIX)
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11")
   # _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "X11-xcb")
-  _qt_cmake_extra_helpers_add_interface(
-      Qt5::Widgets "${_qt_install_prefix}/lib/libxcb.a"
-  )
+  find_package(xcb CONFIG REQUIRED)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::xcb")
 
   # defined: pthread_once
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "pthread")
