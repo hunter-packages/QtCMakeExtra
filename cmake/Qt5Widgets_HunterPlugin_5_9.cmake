@@ -297,6 +297,13 @@ elseif(MSVC)
 
   # defined: ' __imp__OpenThemeData'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets UxTheme)
+
+  # defined: 'QWindowsFontDatabase::QWindowsFontDatabase(void)'
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/Qt5FontDatabaseSupport.lib"
+      "${_qt_install_prefix}/lib/Qt5FontDatabaseSupportd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
