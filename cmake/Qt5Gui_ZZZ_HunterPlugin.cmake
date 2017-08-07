@@ -96,8 +96,14 @@ elseif(UNIX)
       "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
 
-  # Disable for build with xcb from Hunter
-  # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "png")
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
+    # defined: `png_set_option'
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::Gui
+        "${_qt_install_prefix}/lib/libqtlibpng.a"
+        "${_qt_install_prefix}/lib/libqtlibpng_debug.a"
+    )
+  endif()
 
   # Disable for build with xcb from Hunter
   # _qt_cmake_extra_helpers_add_interface(Qt5::Gui "jpeg")
