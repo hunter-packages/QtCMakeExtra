@@ -294,6 +294,9 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/preprocessor.lib"
       "${_qt_install_prefix}/lib/preprocessord.lib"
   )
+
+  # defined: ' __imp__OpenThemeData'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets UxTheme)
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
