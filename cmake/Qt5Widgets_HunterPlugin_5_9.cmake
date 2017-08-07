@@ -206,6 +206,12 @@ elseif(UNIX)
       Qt5::Widgets "${_qt_install_prefix}/lib/libQt5ServiceSupport.a"
   )
 
+  # undefined reference to `vtable for QFreeTypeFontDatabase'
+  # (before libQt5XcbQpa.a)
+  _qt_cmake_extra_helpers_add_interface(
+      Qt5::Widgets "${_qt_install_prefix}/lib/libQt5FontDatabaseSupport.a"
+  )
+
   # undefined reference to `SmcCloseConnection' (depends on SM, ICE)
   _qt_cmake_extra_helpers_add_interface(
       Qt5::Widgets "${_qt_install_prefix}/lib/libQt5XcbQpa.a"
