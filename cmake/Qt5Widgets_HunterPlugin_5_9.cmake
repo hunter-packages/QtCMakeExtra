@@ -311,6 +311,9 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/Qt5EventDispatcherSupport.lib"
       "${_qt_install_prefix}/lib/Qt5EventDispatcherSupportd.lib"
   )
+
+  # defined: __imp__DwmEnableBlurBehindWindow
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Dwmapi)
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
