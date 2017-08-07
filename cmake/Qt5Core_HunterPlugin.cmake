@@ -66,6 +66,12 @@ elseif(MSVC)
 
   # defined: '_WSAAsyncSelect'
   _qt_cmake_extra_helpers_add_interface(Qt5::Core ws2_32)
+
+  # defined: '_GetFileVersionInfoSizeW'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core Mincore)
+
+  # defined: '__imp__timeSetEvent'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core Winmm)
 elseif(MINGW)
   # defined: '_pcre16_compile2'
   _qt_cmake_extra_helpers_add_interface_release_debug(
