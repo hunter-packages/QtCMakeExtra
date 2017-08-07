@@ -80,8 +80,8 @@ elseif(APPLE)
   # qcgl_getProcAddress
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Gui
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}_debug.a"
   )
 elseif(UNIX)
   # Linux

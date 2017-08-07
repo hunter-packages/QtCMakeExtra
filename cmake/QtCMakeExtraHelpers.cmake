@@ -29,9 +29,11 @@ string(COMPARE EQUAL "${_qt_type}" "STATIC_LIBRARY" _qt_is_static)
 if(Qt5Core_VERSION VERSION_LESS 5.9)
   set(_qt_pcre_name "qtpcre")
   set(_qt_harfbuzz_name "qtharfbuzzng")
+  set(_qt_platform_support_name "Qt5PlatformSupport")
 else()
   set(_qt_pcre_name "qtpcre2")
   set(_qt_harfbuzz_name "qtharfbuzz")
+  set(_qt_platform_support_name "Qt5PlatformCompositorSupport")
 endif()
 
 # Add library, framework or link flags

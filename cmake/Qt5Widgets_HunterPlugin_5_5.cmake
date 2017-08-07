@@ -49,8 +49,8 @@ if(IOS)
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}_debug.a"
   )
 
   set(
@@ -119,8 +119,8 @@ elseif(APPLE)
 
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport_debug.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}_debug.a"
   )
 
   # 3rdParty
@@ -192,12 +192,12 @@ elseif(UNIX)
       Qt5::Widgets "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
   )
 
-  # libs should be set before libQt5PlatformSupport
+  # libs should be set before lib${_qt_platform_support_name}
   # defined: QPlatformMenuItem::activated()
   # (depends on z, lib${_qt_harfbuzz_name}, GL)
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui)
 
-  # before libQt5PlatformSupport.a
+  # before lib${_qt_platform_support_name}.a
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::DBus)
 
   _qt_cmake_extra_helpers_add_interface(
@@ -209,7 +209,7 @@ elseif(UNIX)
 
   # undefined: QPlatformMenuItem::activated() (depends on Qt5::Gui)
   _qt_cmake_extra_helpers_add_interface(
-      Qt5::Widgets "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
+      Qt5::Widgets "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}.a"
   )
 
   # undefined reference to `SmcCloseConnection' (depends on SM, ICE)
@@ -258,8 +258,8 @@ elseif(MSVC)
   # defined: 'QBasicFontDatabase::populateFontDatabase'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/Qt5PlatformSupport.lib"
-      "${_qt_install_prefix}/lib/Qt5PlatformSupportd.lib"
+      "${_qt_install_prefix}/lib/${_qt_platform_support_name}.lib"
+      "${_qt_install_prefix}/lib/${_qt_platform_support_name}d.lib"
   )
 
   # defined: '_ImmGetDefaultIMEWnd'
@@ -315,8 +315,8 @@ elseif(MINGW)
   # defined: vtable for QPlatformNativeInterface
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
-      "${_qt_install_prefix}/lib/libQt5PlatformSupport.a"
-      "${_qt_install_prefix}/lib/libQt5PlatformSupportd.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}d.a"
   )
 
   # defined: '_imp__WSAAsyncSelect'
