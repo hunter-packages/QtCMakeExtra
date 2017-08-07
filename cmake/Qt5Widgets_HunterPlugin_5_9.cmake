@@ -328,6 +328,13 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/Qt5AccessibilitySupport.lib"
       "${_qt_install_prefix}/lib/Qt5AccessibilitySupportd.lib"
   )
+
+  # defined: _png_set_sig_bytes
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/qtlibpng.lib"
+      "${_qt_install_prefix}/lib/qtlibpngd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
