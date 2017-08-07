@@ -314,6 +314,13 @@ elseif(MSVC)
 
   # defined: __imp__DwmEnableBlurBehindWindow
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Dwmapi)
+
+  # defined: QAbstractFileIconEngine::pixmap
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/Qt5ThemeSupport.lib"
+      "${_qt_install_prefix}/lib/Qt5ThemeSupportd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
