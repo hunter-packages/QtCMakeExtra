@@ -146,11 +146,11 @@ elseif(UNIX)
   # defined: `SmcCloseConnection'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "SM")
 
-  find_package(X11 CONFIG REQUIRED)
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::X11")
+  find_package(x11 CONFIG REQUIRED)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::x11")
 
-  find_package(X11-xcb CONFIG REQUIRED)
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::X11-xcb")
+  find_package(x11-xcb CONFIG REQUIRED)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "PkgConfig::x11-xcb")
 
   # defined: pthread_once
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets "pthread")
