@@ -25,6 +25,10 @@ elseif(APPLE)
   # _OBJC_CLASS_$_NSAutoreleasePool
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "-framework Foundation")
 
+  # _OBJC_CLASS_$_NSApplication
+  find_package(appkit REQUIRED)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core "appkit::appkit")
+
   # _pcre16_assign_jit_stack
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Core
