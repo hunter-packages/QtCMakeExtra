@@ -91,6 +91,48 @@ elseif(APPLE)
         "${_qt_install_prefix}/lib/libqtlibpng.a"
         "${_qt_install_prefix}/lib/libqtlibpng_debug.a"
     )
+
+    # qt_mac_addToGlobalMimeList(QMacInternalPasteboardMime*)
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5ClipboardSupport.a"
+        "${_qt_install_prefix}/lib/libQt5ClipboardSupport_debug.a"
+    )
+
+    # qcgl_createNSOpenGLPixelFormat
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5CglSupport.a"
+        "${_qt_install_prefix}/lib/libQt5CglSupport_debug.a"
+    )
+
+    # QCoreTextFontEngine::antialiasingThreshold
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5FontDatabaseSupport.a"
+        "${_qt_install_prefix}/lib/libQt5FontDatabaseSupport_debug.a"
+    )
+
+    # QRasterBackingStore::beginPaint
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5GraphicsSupport.a"
+        "${_qt_install_prefix}/lib/libQt5GraphicsSupport_debug.a"
+    )
+
+    # QAccessibleBridgeUtils::effectiveActionNames
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5AccessibilitySupport.a"
+        "${_qt_install_prefix}/lib/libQt5AccessibilitySupport_debug.a"
+    )
+
+    # QAbstractFileIconEngine::actualSize
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QCocoaIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5ThemeSupport.a"
+        "${_qt_install_prefix}/lib/libQt5ThemeSupport_debug.a"
+    )
   endif()
 elseif(UNIX)
   # Linux
