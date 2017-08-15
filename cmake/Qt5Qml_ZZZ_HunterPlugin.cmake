@@ -28,27 +28,29 @@ if(TARGET Qt5::QTcpServerConnection)
   endif()
 endif()
 
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QLocalClientConnectionFactory.cmake"
-    OPTIONAL
-)
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebugServerFactory.cmake"
-    OPTIONAL
-)
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebuggerServiceFactory.cmake"
-    OPTIONAL
-)
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlInspectorServiceFactory.cmake"
-    OPTIONAL
-)
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlProfilerServiceFactory.cmake"
-    OPTIONAL
-)
-include(
-    "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QTcpServerConnectionFactory.cmake"
-    OPTIONAL
-)
+if(Qt5Core_VERSION VERSION_LESS 5.9)
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QLocalClientConnectionFactory.cmake"
+      OPTIONAL
+  )
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebugServerFactory.cmake"
+      OPTIONAL
+  )
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlDebuggerServiceFactory.cmake"
+      OPTIONAL
+  )
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlInspectorServiceFactory.cmake"
+      OPTIONAL
+  )
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QQmlProfilerServiceFactory.cmake"
+      OPTIONAL
+  )
+  include(
+      "${CMAKE_CURRENT_LIST_DIR}/Qt5Qml_QTcpServerConnectionFactory.cmake"
+      OPTIONAL
+  )
+endif()
