@@ -78,6 +78,25 @@ if(TARGET Qt5::CoreAudioPlugin)
   endif()
 endif()
 
+if(TARGET Qt5::DSServicePlugin)
+  if(WIN32)
+    # _MFCreateMediaType
+    _qt_cmake_extra_helpers_add_interface(Qt5::DSServicePlugin Mfplat)
+
+    # _IID_IMFGetService
+    _qt_cmake_extra_helpers_add_interface(Qt5::DSServicePlugin Mfuuid)
+
+    # _MFGetService
+    _qt_cmake_extra_helpers_add_interface(Qt5::DSServicePlugin Mf)
+
+    # _MFCreateVideoSampleFromSurface
+    _qt_cmake_extra_helpers_add_interface(Qt5::DSServicePlugin Evr)
+
+    # _DXVA2CreateDirect3DDeviceManager9
+    _qt_cmake_extra_helpers_add_interface(Qt5::DSServicePlugin Dxva2)
+  endif()
+endif()
+
 _qt_cmake_extra_helpers_add_source(
     Qt5::AVFServicePlugin
     "static_qt_AVFServicePlugin.cpp"
