@@ -18,7 +18,6 @@ endif()
 
 if(IOS)
   if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
-    # ??? -framework AudioToolbox
     # ??? -framework CoreText
     # ??? -lQt5Core
     # ??? -lm
@@ -46,6 +45,9 @@ if(IOS)
 
     find_package(coregraphics REQUIRED)
     _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin coregraphics::coregraphics)
+
+    find_package(audiotoolbox REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin audiotoolbox::audiotoolbox)
 
     # QAccessibleActionInterface::scrollRightAction
     _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin Qt5::Gui)

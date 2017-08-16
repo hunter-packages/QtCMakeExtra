@@ -62,6 +62,8 @@ if(IOS)
       "${_qt_install_prefix}/plugins/platforms/libqios_debug.a"
   )
 
+  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::QIOSIntegrationPlugin)
+
   # Linker flags
   if(EXISTS "${_libqios_release}" AND EXISTS "${_libqios_debug}")
     _qt_cmake_extra_helpers_add_interface(
