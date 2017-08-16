@@ -17,7 +17,9 @@ if(NOT _qt_is_static)
 endif()
 
 if(IOS)
-  #
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
+    _qt_cmake_extra_helpers_add_interface(Qt5::Core "-Wl,-e,_qt_main_wrapper")
+  endif()
 elseif(APPLE)
   # _FSCopyAliasInfo
   _qt_cmake_extra_helpers_add_interface(Qt5::Core "-framework CoreServices")
