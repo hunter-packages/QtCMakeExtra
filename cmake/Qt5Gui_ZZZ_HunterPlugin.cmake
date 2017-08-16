@@ -17,6 +17,70 @@ if(NOT _qt_is_static)
 endif()
 
 if(IOS)
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
+    # ??? -framework AudioToolbox
+    # ??? -framework CoreText
+    # ??? -lQt5Core
+    # ??? -lm
+    # ??? -lqtfreetype
+    # ??? -lqtharfbuzz
+
+    # _OBJC_METACLASS_$_UIAccessibilityElement
+    find_package(uikit REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin uikit::uikit)
+
+    find_package(foundation REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin foundation::foundation)
+
+    find_package(quartzcore REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin quartzcore::quartzcore)
+
+    find_package(assetslibrary REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin assetslibrary::assetslibrary)
+
+    find_package(corefoundation REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin corefoundation::corefoundation)
+
+    find_package(opengles REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin opengles::opengles)
+
+    find_package(coregraphics REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin coregraphics::coregraphics)
+
+    # QAccessibleActionInterface::scrollRightAction
+    _qt_cmake_extra_helpers_add_interface(Qt5::QIOSIntegrationPlugin Qt5::Gui)
+
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QIOSIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5FontDatabaseSupport.a"
+        "${_qt_install_prefix}/lib/libQt5FontDatabaseSupport_debug.a"
+    )
+
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QIOSIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5GraphicsSupport.a"
+        "${_qt_install_prefix}/lib/libQt5GraphicsSupport_debug.a"
+    )
+
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QIOSIntegrationPlugin
+        "${_qt_install_prefix}/lib/libQt5ClipboardSupport.a"
+        "${_qt_install_prefix}/lib/libQt5ClipboardSupport_debug.a"
+    )
+
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QIOSIntegrationPlugin
+        "${_qt_install_prefix}/lib/libqtlibpng.a"
+        "${_qt_install_prefix}/lib/libqtlibpng_debug.a"
+    )
+
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QIOSIntegrationPlugin
+        "${_qt_install_prefix}/lib/lib${_qt_pcre_name}.a"
+        "${_qt_install_prefix}/lib/lib${_qt_pcre_name}_debug.a"
+    )
+  endif()
+
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework Foundation")
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework UIKit")
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "-framework CoreFoundation")
@@ -38,6 +102,14 @@ if(IOS)
       "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
       "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}_debug.a"
   )
+
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::Gui
+        "${_qt_install_prefix}/lib/libqtlibpng.a"
+        "${_qt_install_prefix}/lib/libqtlibpng_debug.a"
+    )
+  endif()
 elseif(APPLE)
   # _adler32
   _qt_cmake_extra_helpers_add_interface(Qt5::Gui "z")

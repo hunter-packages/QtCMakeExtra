@@ -19,6 +19,9 @@ endif()
 if(IOS)
   if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
     _qt_cmake_extra_helpers_add_interface(Qt5::Core "-Wl,-e,_qt_main_wrapper")
+
+    find_package(mobilecoreservices REQUIRED)
+    _qt_cmake_extra_helpers_add_interface(Qt5::Core mobilecoreservices::mobilecoreservices)
   endif()
 elseif(APPLE)
   # _FSCopyAliasInfo
