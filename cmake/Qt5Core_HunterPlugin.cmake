@@ -78,6 +78,7 @@ elseif(MSVC)
 
   # defined: '_GetFileVersionInfoSizeW'
   _qt_cmake_extra_helpers_add_interface(Qt5::Core Mincore)
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core Version)
 
   # defined: '__imp__timeSetEvent'
   _qt_cmake_extra_helpers_add_interface(Qt5::Core Winmm)
