@@ -5,12 +5,4 @@
 
 // http://doc.qt.io/qt-5/qtglobal.html
 
-#if defined(Q_OS_IOS)
-  Q_IMPORT_PLUGIN(QMultimediaDeclarativeModule);
-#elif defined(Q_OS_DARWIN)
-  // TODO
-#elif defined(Q_OS_LINUX)
-  // TODO
-#elif defined(Q_OS_WIN)
-  // TODO
-#endif
+Q_IMPORT_PLUGIN(QMultimediaDeclarativeModule);
