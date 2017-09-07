@@ -231,21 +231,35 @@ elseif(MSVC)
       "static_qt_plugins.cpp"
   )
 
-  # defined: '_glBindBuffer'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_GLESv2)
+  if(TARGET Qt5::Gui_GLESv2 AND TARGET Qt5::Gui_EGL)
+    # Qt with ANGLE (default)
+
+    # defined: '_glBindBuffer'
+    _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_GLESv2)
+
+    # defined: 'CreateTLSIndex'
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::Widgets
+        "${_qt_install_prefix}/lib/translator.lib"
+        "${_qt_install_prefix}/lib/translatord.lib"
+    )
+
+    # defined: '_eglChooseConfig'
+    _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
+
+    # defined: 'pp::Preprocessor::Preprocessor'
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::Widgets
+        "${_qt_install_prefix}/lib/preprocessor.lib"
+        "${_qt_install_prefix}/lib/preprocessord.lib"
+    )
+  endif()
 
   # defined: '_hb_buffer_create'
   _qt_cmake_extra_helpers_add_interface_release_debug(
       Qt5::Widgets
       "${_qt_install_prefix}/lib/${_qt_harfbuzz_name}.lib"
       "${_qt_install_prefix}/lib/${_qt_harfbuzz_name}d.lib"
-  )
-
-  # defined: 'CreateTLSIndex'
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::Widgets
-      "${_qt_install_prefix}/lib/translator.lib"
-      "${_qt_install_prefix}/lib/translatord.lib"
   )
 
   # defined: '_pcre16_compile2'
@@ -274,9 +288,6 @@ elseif(MSVC)
   # defined: '__imp__PlaySoundW'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets winmm)
 
-  # defined: '_eglChooseConfig'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Widgets Qt5::Gui_EGL)
-
   # defined: '_Direct3DCreate9'
   _qt_cmake_extra_helpers_add_interface(Qt5::Widgets d3d9)
 
@@ -288,13 +299,6 @@ elseif(MSVC)
       Qt5::Widgets
       "${_qt_install_prefix}/lib/qtfreetype.lib"
       "${_qt_install_prefix}/lib/qtfreetyped.lib"
-  )
-
-  # defined: 'pp::Preprocessor::Preprocessor'
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::Widgets
-      "${_qt_install_prefix}/lib/preprocessor.lib"
-      "${_qt_install_prefix}/lib/preprocessord.lib"
   )
 
   # defined: ' __imp__OpenThemeData'
