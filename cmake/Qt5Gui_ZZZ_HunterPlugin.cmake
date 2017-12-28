@@ -235,7 +235,15 @@ elseif(UNIX)
 elseif(MSVC)
   #
 elseif(MINGW)
-  #
+  # defined: '_hb_buffer_create'
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Gui
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}.a"
+      "${_qt_install_prefix}/lib/lib${_qt_harfbuzz_name}d.a"
+  )
+
+  # defined: '_imp__glDepthRange'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Gui opengl32)
 endif()
 
 if(TARGET Qt5::QXcbEglIntegrationPlugin)

@@ -23,7 +23,7 @@ endif()
 if(TARGET Qt5::QTcpServerConnection)
   # No Qt5::QTcpServerConnection target in Qt 5.6
 
-  if(IOS OR APPLE OR UNIX)
+  if(IOS OR APPLE OR UNIX OR MINGW)
     _qt_cmake_extra_helpers_add_interface(Qt5::Qml Qt5::QTcpServerConnection)
   endif()
 endif()
