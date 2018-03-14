@@ -103,11 +103,19 @@ elseif(MSVC)
     )
   endif()
 
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::QMultimediaDeclarativeModule
-      "${_qt_install_prefix}/lib/Qt5MultimediaQuick_p.lib"
-      "${_qt_install_prefix}/lib/Qt5MultimediaQuick_pd.lib"
-  )
+  if(Qt5Core_VERSION VERSION_LESS 5.10)
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QMultimediaDeclarativeModule
+        "${_qt_install_prefix}/lib/Qt5MultimediaQuick_p.lib"
+        "${_qt_install_prefix}/lib/Qt5MultimediaQuick_pd.lib"
+    )
+  else()
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QMultimediaDeclarativeModule
+        "${_qt_install_prefix}/lib/Qt5MultimediaQuick.lib"
+        "${_qt_install_prefix}/lib/Qt5MultimediaQuickd.lib"
+    )
+  endif()
 endif()
 
 _qt_cmake_extra_helpers_add_source(
