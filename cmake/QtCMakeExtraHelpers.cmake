@@ -94,7 +94,7 @@ endfunction()
 function(_qt_cmake_extra_helpers_add_source target source)
   if(NOT TARGET "${target}")
     # *Plugin target is not always installed,
-    # for simplicity check existence 
+    # for simplicity check existence
     return()
   endif()
 
