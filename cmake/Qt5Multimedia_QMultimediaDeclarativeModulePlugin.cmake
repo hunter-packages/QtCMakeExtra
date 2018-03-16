@@ -60,11 +60,19 @@ if(IOS OR APPLE OR _is_linux)
     )
   endif()
 
-  _qt_cmake_extra_helpers_add_interface_release_debug(
-      Qt5::QMultimediaDeclarativeModule
-      "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p.a"
-      "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p_debug.a"
-  )
+  if(Qt5Core_VERSION VERSION_LESS 5.10)
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QMultimediaDeclarativeModule
+        "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p.a"
+        "${_qt_install_prefix}/lib/libQt5MultimediaQuick_p_debug.a"
+    )
+  else()
+    _qt_cmake_extra_helpers_add_interface_release_debug(
+        Qt5::QMultimediaDeclarativeModule
+        "${_qt_install_prefix}/lib/libQt5MultimediaQuick.a"
+        "${_qt_install_prefix}/lib/libQt5MultimediaQuick_debug.a"
+    )
+  endif()
 elseif(MSVC)
   add_library(Qt5::QMultimediaDeclarativeModule MODULE IMPORTED)
 
