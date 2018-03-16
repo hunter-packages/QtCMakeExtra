@@ -173,12 +173,14 @@ elseif(APPLE)
         "${_qt_install_prefix}/lib/libQt5ClipboardSupport_debug.a"
     )
 
-    # qcgl_createNSOpenGLPixelFormat
-    _qt_cmake_extra_helpers_add_interface_release_debug(
-        Qt5::QCocoaIntegrationPlugin
-        "${_qt_install_prefix}/lib/libQt5CglSupport.a"
-        "${_qt_install_prefix}/lib/libQt5CglSupport_debug.a"
-    )
+    if(Qt5Core_VERSION VERSION_LESS 5.10)
+      # qcgl_createNSOpenGLPixelFormat
+      _qt_cmake_extra_helpers_add_interface_release_debug(
+          Qt5::QCocoaIntegrationPlugin
+          "${_qt_install_prefix}/lib/libQt5CglSupport.a"
+          "${_qt_install_prefix}/lib/libQt5CglSupport_debug.a"
+      )
+    endif()
 
     # QCoreTextFontEngine::antialiasingThreshold
     _qt_cmake_extra_helpers_add_interface_release_debug(
