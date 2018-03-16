@@ -158,6 +158,10 @@ elseif(APPLE)
       "${_qt_install_prefix}/lib/lib${_qt_platform_support_name}_debug.a"
   )
 
+  if(NOT Qt5Core_VERSION VERSION_LESS 5.10)
+    _qt_cmake_extra_helpers_add_interface(Qt5::QCocoaIntegrationPlugin "-framework QuartzCore")
+  endif()
+
   if(NOT Qt5Core_VERSION VERSION_LESS 5.9)
     # _png_create_info_struct
     _qt_cmake_extra_helpers_add_interface_release_debug(
