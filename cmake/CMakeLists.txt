@@ -4,6 +4,7 @@ install(
     Qt5Widgets_HunterPlugin_5_6.cmake
     Qt5Widgets_HunterPlugin_5_9.cmake
     Qt5Widgets_HunterPlugin_5_10.cmake
+    Qt5Widgets_HunterPlugin_5_11.cmake
     Qt5Widgets_HunterPlugin.cmake
     DESTINATION
     "lib/cmake/Qt5Widgets"
