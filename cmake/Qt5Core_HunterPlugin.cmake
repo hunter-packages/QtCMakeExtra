@@ -77,8 +77,13 @@ elseif(MSVC)
   _qt_cmake_extra_helpers_add_interface(Qt5::Core ws2_32)
 
   # defined: '_GetFileVersionInfoSizeW'
-  _qt_cmake_extra_helpers_add_interface(Qt5::Core Mincore)
   _qt_cmake_extra_helpers_add_interface(Qt5::Core Version)
+
+  # defined: 'NetShareEnum'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core Netapi32)
+
+  # defined: '__imp__GetUserProfileDirectoryW'
+  _qt_cmake_extra_helpers_add_interface(Qt5::Core Userenv)
 
   # defined: '__imp__timeSetEvent'
   _qt_cmake_extra_helpers_add_interface(Qt5::Core Winmm)
