@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Ruslan Baratov
+# Copyright (c) 2015-2019, Ruslan Baratov
 # All rights reserved.
 
 # *_ZZZ_* added so this file will be loaded the last
@@ -12,6 +12,7 @@ get_filename_component(
 # * _qt_cmake_extra_helpers_add_interface (function)
 # * _qt_cmake_extra_helpers_add_interface_release_debug (function)
 # * _qt_cmake_extra_helpers_add_source (function)
+# * Qt5Core_VERSION (variable)
 include("${_qt_install_prefix}/cmake/QtCMakeExtraHelpers.cmake")
 
 if(NOT _qt_is_static)
@@ -51,4 +52,9 @@ elseif(APPLE)
 
   # _CFNetworkCopyProxiesForAutoConfigurationScript
   _qt_cmake_extra_helpers_add_interface(Qt5::Network "-framework CFNetwork")
+elseif(MSVC)
+  if(NOT Qt5Core_VERSION VERSION_LESS "5.11.3")
+    # defined: 'GetNetworkParams'
+    _qt_cmake_extra_helpers_add_interface(Qt5::Network Iphlpapi)
+  endif()
 endif()

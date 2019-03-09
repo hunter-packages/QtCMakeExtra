@@ -341,6 +341,13 @@ elseif(MSVC)
       "${_qt_install_prefix}/lib/qtlibpng.lib"
       "${_qt_install_prefix}/lib/qtlibpngd.lib"
   )
+
+  # defined: QWindowsUiaWrapper::instance
+  _qt_cmake_extra_helpers_add_interface_release_debug(
+      Qt5::Widgets
+      "${_qt_install_prefix}/lib/Qt5WindowsUIAutomationSupport.lib"
+      "${_qt_install_prefix}/lib/Qt5WindowsUIAutomationSupportd.lib"
+  )
 elseif(MINGW)
   _qt_cmake_extra_helpers_add_source(
       Qt5::Widgets
